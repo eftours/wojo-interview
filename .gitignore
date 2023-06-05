@@ -1,0 +1,6 @@
+node_modules
+.turbo
+**/**/generated.ts
+.env
+.next
+**/**/next-env.d.ts

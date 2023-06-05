@@ -1,0 +1,8 @@
+{
+    "extends": "@wojo/tsconfig/library.json",
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "noEmit": true,
+    },
+    "include": ["src"]
+}
