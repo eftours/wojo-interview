@@ -1,5 +1,5 @@
 import { Collection } from "mongodb";
-import { DbRoomConfiguration } from "../../../../apps/api/src/db/room-configuration.model";
+import { DbRoomConfiguration } from "./room-configuration.model";
 import { MongoClient } from "@wojo/mongo";
 
 export class Db extends MongoClient {
