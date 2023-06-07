@@ -4,4 +4,7 @@ export type DbRoomConfiguration = {
     price: number;
     name: string;
     description: string;
+    roomInventory: {
+        availability: number;
+    };
 };
