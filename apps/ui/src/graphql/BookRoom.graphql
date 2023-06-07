@@ -1,0 +1,3 @@
+mutation BookRoom($_id: ObjectId!) {
+    bookRoom(_id: $_id)
+}

@@ -1,6 +1,6 @@
 import { Db } from "./client";
 import { config } from "../config";
-import { rooms } from "./seed.data";
+import { rooms, tours } from "./seed.data";
 
 const db = new Db(config.DB_URL);
 async function seed() {
@@ -13,6 +13,7 @@ async function seed() {
                 updatedAt: new Date(),
             }))
         );
+        await db.tour.insertMany(tours.map((tour) => ({ ...tour, createdAt: new Date(), updatedAt: new Date() })));
         console.log("Successfully seeded data.");
     } catch (e) {
         console.log("Error seeding data: ", e);

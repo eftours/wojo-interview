@@ -21,10 +21,17 @@ const configs: Config = [
 ];
 
 export type RoomingListProps = {
+    tourCode?: string;
     nbTravelers: number;
+    setRooms: any;
 };
-export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers }) => {
-    const { data, error, loading } = useRoomingConfigurationQuery();
+export const RoomingList: React.FC<RoomingListProps> = ({ tourCode, nbTravelers, setRooms }) => {
+    const { data, error, loading } = useRoomingConfigurationQuery({
+        variables: {
+            tourCode: tourCode ?? "",
+        },
+        skip: !tourCode,
+    });
     const config = configs[nbTravelers] as Combination[];
     if (loading) {
         return <div>loading...</div>;
@@ -44,9 +51,37 @@ export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers }) => {
                     if (!match) {
                         return prev;
                     }
-                    return `${prev} ${count} ${match.name} ${pluralize("room", count)}`;
+                    return `${prev} ${count} ${match.name} ${pluralize("room", count)} with availability of ${
+                        match.roomInventory.availability
+                    }`;
                 }, "");
-                return <div key={index}>{x}</div>;
+                return (
+                    <div
+                        key={index}
+                        style={{
+                            display: "flex",
+                            justifyContent: "space-between",
+                            marginBottom: 8,
+                        }}
+                    >
+                        <div>{x}</div>
+                        <button
+                            onClick={() => {
+                                const rooms = [];
+                                for (const code of Object.keys(combo)) {
+                                    const room = data?.roomingConfiguration?.find((room) => room.bedCode === code);
+                                    if (room) {
+                                        rooms.push(room);
+                                    }
+                                }
+                                setRooms(rooms);
+                            }}
+                            style={{ padding: "4px 32px" }}
+                        >
+                            Select
+                        </button>
+                    </div>
+                );
             })}
         </ul>
     );

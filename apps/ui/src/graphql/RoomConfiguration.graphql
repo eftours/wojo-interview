@@ -1,7 +1,10 @@
-query RoomingConfiguration {
-    roomingConfiguration {
+query RoomingConfiguration($tourCode: String!) {
+    roomingConfiguration(tourCode: $tourCode) {
         _id
         bedCode
         name
+        roomInventory {
+            availability
+        }
     }
 }
