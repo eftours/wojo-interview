@@ -10,6 +10,8 @@ async function reset() {
         console.log("Successfully reset data.");
     } catch (e) {
         console.log("Error resetting data: ", e);
+    } finally {
+        process.exit(0);
     }
 }
 reset();

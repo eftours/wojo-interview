@@ -2,21 +2,11 @@
 
 Welcome to the EF World Journeys interview! We're excited for the opportunity to learn from you and to share with you a bit about how we conduct code reviews on our team. If you have any questions at all please don't hestitate to reach out and ask!
 
-## Instructions
-
-In this project you'll find an open PR [here](https://github.com/eftours/wojo-interview/pulls) that mirrors a potential feature request from our Operations team.
-
-#### User story:
-
-As a user, I'd like to search for rooms that only have available inventory.
-
-#### Description
-
-During the checkout process, users currently select a rooming preference without having any knowledge of the hotel inventory. Consequently, this leads to additional operational work in the future, as we need to ask the booked traveler for their preferred room if their initial preference is unavailable and update their preferences accordingly. In this case, we can assume rooming inventory is stored per tour.
-
 ## Overview
 
-Turborepo that contains all the pieces that make up the wojo interview including a graphql service and the web app
+This project is a simplified real world application for users wanting to book hotel rooms and specify their rooming preferences at the time of checkout. In this repo, you can find both the UI and API under the `/apps` folder. You'll also find a draft PR [here](https://github.com/eftours/wojo-interview/pull/1) that mirrors a potential feature request from our Operations team.
+
+This project is a set up as a turborepo that contains all the pieces that make up the wojo interview rooming problem.
 
 This service uses:
 

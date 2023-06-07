@@ -14,12 +14,6 @@
             "cache": false,
             "persistent": false
         },
-        "generate:gql": {
-            "dependsOn": ["^dev"],
-            "outputs": [],
-            "cache": false,
-            "persistent": false
-        },
         "reset:db": {
             "dependsOn": ["^dev"],
             "cache": false,

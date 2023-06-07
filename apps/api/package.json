@@ -4,8 +4,8 @@
     "private": true,
     "scripts": {
         "dev": "tsnd -r dotenv/config --inspect=4001 --respawn --transpile-only --ignore-watch node_modules ./src/main.ts",
-        "seed:db": "tsnd -r dotenv/config --inspect=4001 --respawn --transpile-only --ignore-watch node_modules ./src/db/seed.ts",
-        "reset:db": "tsnd -r dotenv/config --inspect=4001 --respawn --transpile-only --ignore-watch node_modules ./src/db/reset.ts",
+        "seed:db": "tsnd -r dotenv/config --inspect=4001 --transpile-only --ignore-watch node_modules ./src/db/seed.ts",
+        "reset:db": "tsnd -r dotenv/config --inspect=4001 --transpile-only --ignore-watch node_modules ./src/db/reset.ts",
         "typecheck": "tsc --noEmit",
         "test": "jest"
     },
