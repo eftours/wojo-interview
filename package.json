@@ -5,10 +5,9 @@
     "scripts": {
         "dev": "turbo dev",
         "dev:api": "turbo dev --filter api",
-        "dev:ui": "turbo dev --filter web",
-        "dev:web": "turbo dev --filter=api --filter=web",
-        "dev:ios": "turbo dev ios --filter=api --filter=app",
-        "dev:android": "turbo dev android --filter=api --filter=app",
+        "dev:web": "turbo dev --filter web",
+        "dev:ios": "turbo dev --filter ios",
+        "dev:android": "turbo dev --filter android",
         "lint": "turbo lint",
         "generate": "graphql-codegen",
         "reset:db": "turbo reset:db",
