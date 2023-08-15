@@ -1,6 +1,7 @@
 "use client";
-import { useRoomingConfigurationQuery } from "../../generated";
+import { useRoomingConfigurationQuery } from "generated";
 import pluralize from "pluralize";
+import { Text, View } from "react-native";
 
 type Combination = {
     S?: number;
@@ -27,27 +28,27 @@ export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers }) => {
     const { data, error, loading } = useRoomingConfigurationQuery();
     const config = configs[nbTravelers] as Combination[];
     if (loading) {
-        return <div>loading...</div>;
+        return <Text>loading...</Text>;
     }
     if (error) {
-        return <div>There was an error loading the rooms.</div>;
+        return <Text>There was an error loading the rooms.</Text>;
     }
     if (!config) {
-        return <div>{`There are no rooms for ${nbTravelers} ${pluralize("traveler", nbTravelers)}`}</div>;
+        return <Text>{`There are no rooms for ${nbTravelers} ${pluralize("traveler", nbTravelers)}`}</Text>;
     }
     return (
-        <ul data-testid="rooming-list" style={{ marginTop: 32 }}>
+        <View data-testid="rooming-list" style={{ marginTop: 32 }}>
             {config.map((combo, index) => {
                 const x = Object.keys(combo).reduce((prev, curr) => {
                     const count = combo[curr as keyof Combination];
-                    const match = data?.roomingConfiguration?.find((room) => room.bedCode === curr);
+                    const match = data?.roomingConfiguration?.find((room: any) => room.bedCode === curr);
                     if (!match) {
                         return prev;
                     }
                     return `${prev} ${count} ${match.name} ${pluralize("room", count)}`;
                 }, "");
-                return <div key={index}>{x}</div>;
+                return <Text key={index}>{x}</Text>;
             })}
-        </ul>
+        </View>
     );
 };
