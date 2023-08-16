@@ -1,5 +1,5 @@
 import { Dispatch, SetStateAction } from "react";
-import { Select } from ".";
+import { Select } from "./select";
 
 export type SelectTravelersProps = {
     nbTravelers: number;

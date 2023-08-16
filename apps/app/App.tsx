@@ -1,8 +1,8 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
-import { RoomingList, SelectTravelers } from "@app/components";
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
+import { RoomingList, SelectTravelers, Selection } from "./src/components";
 
 const client = new ApolloClient({
     uri: "http://localhost:4000/graphql",
@@ -11,15 +11,16 @@ const client = new ApolloClient({
 
 export default function Home() {
     const [nbTravelers, setNbTravelers] = useState(2);
-    const [selection, setSelection] = useState<string | undefined>(undefined);
+    const [selection, setSelection] = useState<string>("2");
     useEffect(() => {
-        setSelection(undefined);
+        setSelection("");
     }, [nbTravelers]);
     return (
         <ApolloProvider client={client}>
             <View style={styles.container}>
                 <SelectTravelers nbTravelers={nbTravelers} setNbTravelers={setNbTravelers} />
-                <RoomingList nbTravelers={nbTravelers} />
+                <RoomingList nbTravelers={nbTravelers} selectedId={selection} setSelection={setSelection} />
+                <Selection selection={selection} />
                 <StatusBar style="auto" />
             </View>
         </ApolloProvider>

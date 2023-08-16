@@ -12,14 +12,6 @@
     "resolveJsonModule": true,
     "strict": true,
     "baseUrl": "./",
-    "paths": {
-      "@app/*": [
-        "src/*"
-      ],
-      "@tests/*": [
-        "tests/*"
-      ]
-    }
   },
   "extends": "expo/tsconfig.base"
 }
