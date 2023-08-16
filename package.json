@@ -33,9 +33,9 @@
         "@sentry/node": "^7.48.0"
     },
     "lint-staged": {
-        "(packages|apps)/**/*.ts": [
+        "(packages|apps)/**/*.{ts,tsx}": [
             "prettier --write",
-            "eslint --fix --ext .ts"
+            "eslint --fix --ext .ts,.tsx"
         ]
     },
     "packageManager": "npm@8.19.3",
