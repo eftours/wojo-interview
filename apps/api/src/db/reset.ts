@@ -15,5 +15,3 @@ async function reset() {
     }
 }
 reset();
-
-export default reset;

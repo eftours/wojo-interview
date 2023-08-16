@@ -1,13 +1,13 @@
 import { Collection } from "mongodb";
-import { DbRoomConfiguration } from "./room-configuration.model";
+import { DbRoom } from "./room.model";
 import { MongoClient } from "@wojo/mongo";
 
 export class Db extends MongoClient {
     async init() {
         await this.connect();
     }
-    get roomConfiguration(): Collection<DbRoomConfiguration> {
-        return this.db().collection<DbRoomConfiguration>("room-configuration", {
+    get room(): Collection<DbRoom> {
+        return this.db().collection<DbRoom>("room", {
             ignoreUndefined: true,
         });
     }

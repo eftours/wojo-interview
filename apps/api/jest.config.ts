@@ -3,7 +3,6 @@ export default {
         "^.+\\.ts?$": [
             "ts-jest",
             {
-                // Don't typecheck tests. We have a separate process for that
                 isolatedModules: true,
             },
         ],

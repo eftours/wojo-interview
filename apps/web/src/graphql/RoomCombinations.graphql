@@ -1,0 +1,12 @@
+query RoomCombinations($nbTravelers: Int!) {
+    roomCombinations(nbTravelers: $nbTravelers) {
+        count
+        room {
+            _id
+            bedCode
+            name
+            description
+            price
+        }
+    }
+}

@@ -6,12 +6,12 @@
         "dev": "turbo dev",
         "dev:web": "turbo dev --filter=web --filter=api",
         "dev:ios": "turbo dev --filter=app --filter=api",
-        "lint": "turbo lint",
         "generate": "graphql-codegen",
         "reset:db": "turbo reset:db",
         "seed:db": "turbo seed:db",
         "typecheck": "turbo typecheck",
         "test": "turbo test",
+        "lint": "turbo lint",
         "format": "prettier --write \"**/*.{ts,tsx,md}\""
     },
     "workspaces": [
@@ -31,9 +31,15 @@
     "dependencies": {
         "@sentry/node": "^7.48.0"
     },
+    "lint-staged": {
+        "(packages|apps)/**/*.ts": [
+            "prettier --write",
+            "eslint --fix --ext .ts"
+        ]
+    },
     "packageManager": "npm@8.19.3",
     "engines": {
         "npm": ">=8.0.0",
-        "node": ">=16.0.0"
+        "node": ">=18.0.0"
     }
 }

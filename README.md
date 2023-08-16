@@ -41,7 +41,7 @@ See the package.json for additional commands such as linting, formatting, testin
 
 #### Development Env
 
-All infrastructure can be run locally via docker. (Download docker for desktop here:)
+All infrastructure can be run locally via docker. (Download docker for desktop here: https://www.docker.com/products/docker-desktop/)
 Once you have docker running locally, at the root of the repo run `docker-compose up` This will:
 
 1. Create running local mongo instance of a single node replica set. (Needed for DB transactions.)

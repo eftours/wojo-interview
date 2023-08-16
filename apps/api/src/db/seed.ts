@@ -6,7 +6,7 @@ const db = new Db(config.DB_URL);
 async function seed() {
     try {
         await db.connect();
-        await db.roomConfiguration.insertMany(
+        await db.room.insertMany(
             rooms.map((room) => ({
                 ...room,
                 createdAt: new Date(),

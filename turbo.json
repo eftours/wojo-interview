@@ -14,13 +14,6 @@
             "cache": false,
             "persistent": true
         },
-        "ios": {
-            "dependsOn": [
-                "^build"
-            ],
-            "cache": false,
-            "persistent": true
-        },
         "typecheck": {
             "outputs": [],
             "cache": false,
