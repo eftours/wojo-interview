@@ -3,7 +3,7 @@ import RNRadioGroup from "react-native-radio-buttons-group";
 
 export type RadioGroupProps = {
     items: { id: string; label: string; value: string }[];
-    selectedId: string;
+    selectedId: string | undefined;
     labelText?: string;
     onChange?: (selectedId: string) => void;
 };

@@ -5,8 +5,8 @@ import { RadioGroup } from "./radio-group";
 
 export type RoomingListProps = {
     nbTravelers: number;
-    selectedId: string;
-    setSelection: React.Dispatch<React.SetStateAction<string>>;
+    selectedId: string | undefined;
+    setSelection: React.Dispatch<React.SetStateAction<string | undefined>>;
 };
 export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers, selectedId, setSelection }) => {
     const { data, error, loading } = useRoomCombinationsQuery({

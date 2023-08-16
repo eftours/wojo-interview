@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "react-native";
 
 export type SelectionProps = {
-    selection?: string;
+    selection: string | undefined;
 };
 export const Selection: React.FC<SelectionProps> = ({ selection }) => {
     if (!selection) {

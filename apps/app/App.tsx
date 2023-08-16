@@ -11,9 +11,9 @@ const client = new ApolloClient({
 
 export default function Home() {
     const [nbTravelers, setNbTravelers] = useState(2);
-    const [selection, setSelection] = useState<string>("2");
+    const [selection, setSelection] = useState<string | undefined>();
     useEffect(() => {
-        setSelection("");
+        setSelection(undefined);
     }, [nbTravelers]);
     return (
         <ApolloProvider client={client}>
