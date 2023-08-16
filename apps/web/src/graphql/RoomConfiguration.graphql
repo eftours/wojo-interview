@@ -1,7 +1,0 @@
-query RoomingConfiguration {
-    roomingConfiguration {
-        _id
-        bedCode
-        name
-    }
-}
