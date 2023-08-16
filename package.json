@@ -1,0 +1,45 @@
+{
+    "name": "wojo-interview",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "turbo dev",
+        "dev:api": "turbo dev --filter api",
+        "dev:web": "turbo dev --filter web",
+        "generate": "graphql-codegen",
+        "reset:db": "turbo reset:db",
+        "seed:db": "turbo seed:db",
+        "typecheck": "turbo typecheck",
+        "test": "turbo test",
+        "lint": "turbo lint",
+        "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    },
+    "workspaces": [
+        "packages/*",
+        "apps/*"
+    ],
+    "devDependencies": {
+        "@graphql-codegen/cli": "^3.3.0",
+        "@graphql-codegen/typescript": "^3.0.3",
+        "@graphql-codegen/typescript-operations": "^3.0.4",
+        "@graphql-codegen/typescript-react-apollo": "^3.3.7",
+        "@graphql-codegen/typescript-resolvers": "^3.2.0",
+        "dotenv-cli": "^7.2.1",
+        "prettier": "^2.8.7",
+        "turbo": "^1.9.3"
+    },
+    "dependencies": {
+        "@sentry/node": "^7.48.0"
+    },
+    "lint-staged": {
+        "(packages|apps)/**/*.ts": [
+            "prettier --write",
+            "eslint --fix --ext .ts"
+        ]
+    },
+    "packageManager": "npm@8.19.3",
+    "engines": {
+        "npm": ">=8.0.0",
+        "node": ">=18.0.0"
+    }
+}

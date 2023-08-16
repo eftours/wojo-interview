@@ -1,0 +1,36 @@
+{
+    "name": "@wojo/api",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "dev": "tsnd -r dotenv/config --inspect=4001 --respawn --transpile-only --ignore-watch node_modules ./src/main.ts",
+        "seed:db": "tsnd -r dotenv/config --inspect=4001 --transpile-only --ignore-watch node_modules ./src/db/seed.ts",
+        "reset:db": "tsnd -r dotenv/config --inspect=4001 --transpile-only --ignore-watch node_modules ./src/db/reset.ts",
+        "typecheck": "tsc --noEmit",
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "dotenv": "^16.0.3",
+        "jest-mock-extended": "^3.0.4",
+        "mongodb-memory-server": "^8.12.2",
+        "@types/cors": "^2.8.13",
+        "@types/node": "^18.15.11",
+        "ts-node": "^10.9.1",
+        "ts-node-dev": "^2.0.0",
+        "@wojo/tsconfig": "*",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "graphql": "^16.6.0",
+        "@apollo/server": "^4.6.0",
+        "@apollo/subgraph": "^2.4.1",
+        "@wojo/mongo": "*",
+        "@wojo/graphql-scalars": "*",
+        "cors": "^2.8.5",
+        "graphql-tag": "^2.12.6",
+        "mongodb": "^5.3.0"
+    }
+}

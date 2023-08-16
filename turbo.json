@@ -1,0 +1,31 @@
+{
+    "$schema": "https://turbo.build/schema.json",
+    "pipeline": {
+        "build": {
+            "outputs": [".next/**", "!.next/cache/**"]
+        },
+        "dev": {
+            "dependsOn": ["^build"],
+            "cache": false,
+            "persistent": true
+        },
+        "typecheck": {
+            "outputs": [],
+            "cache": false,
+            "persistent": false
+        },
+        "reset:db": {
+            "dependsOn": ["^dev"],
+            "cache": false,
+            "persistent": false
+        },
+        "seed:db": {
+            "dependsOn": ["^dev"],
+            "cache": false,
+            "persistent": false
+        },
+        "test": {},
+        "lint": {}
+    },
+    "globalEnv": ["NODE_ENV", "STAGE"]
+}

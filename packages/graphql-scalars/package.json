@@ -1,0 +1,20 @@
+{
+    "name": "@wojo/graphql-scalars",
+    "version": "1.0.0",
+    "private": true,
+    "main": "src/index.ts",
+    "scripts": {
+        "test": "jest --passWithNoTests"
+    },
+    "dependencies": {
+        "dayjs": "^1.11.7",
+        "graphql": "^16.6.0",
+        "mongodb": "^5.3.0"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.0",
+        "jest": "^29.5.0",
+        "ts-jest": "^29.1.0",
+        "@wojo/tsconfig": "*"
+    }
+}

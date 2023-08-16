@@ -1,0 +1,22 @@
+{
+    "name": "@wojo/mongo",
+    "version": "1.0.0",
+    "private": true,
+    "main": "src/index.ts",
+    "scripts": {
+        "test": "jest"
+    },
+    "dependencies": {
+        "mongodb": "^5.3.0",
+        "lodash": "^4.6.0",
+        "zod": "^3.21.4"
+    },
+    "devDependencies": {
+        "@types/jest": "^29.5.0",
+        "jest": "^29.5.0",
+        "ts-jest": "^29.1.0",
+        "@wojo/tsconfig": "*",
+        "@types/node": "^18.15.11",
+        "@types/lodash": "^4.6.7"
+    }
+}
