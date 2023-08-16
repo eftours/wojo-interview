@@ -4,7 +4,7 @@ Welcome to the EF World Journeys interview! We're excited for the opportunity to
 
 ## Overview
 
-This project is a simplified real world application for users wanting to book hotel rooms and specify their rooming preferences at the time of checkout. In this repo, you can find both the UI and API under the `/apps` folder. You'll also find a draft PR [here](https://github.com/eftours/wojo-interview/pull/1) that mirrors a potential feature request from our Operations team.
+This project is a simplified real world application for users wanting to book hotel rooms and specify their rooming preferences at the time of checkout. In this repo, you can find both the UI and API under the `/apps` folder.
 
 This project is a set up as a turborepo that contains all the pieces that make up the wojo interview rooming problem.
 
@@ -31,10 +31,9 @@ This repo uses Turborepo and has a few aliased commands in the root package.json
 4. Run `sudo bash add-mongo-host.sh` to connect the mongo replica
 5. Run `npm run seed:db` to seed the database with some initial sample data
 6. Run `npm run dev` to start developing the web, app and GraphQL Service in parallel or run one of the below dev commands individually:
-    1. GraphQL Service: `npm run dev:api`
-    2. Web: `npm run dev:web`
-    3. iOS: `npm run dev:ios`
-    4. Android: `npm run dev:android`
+    1. Web: `npm run dev:web`
+    2. iOS: `npm run dev:ios`
+    3. API: `npm run dev:api`
 
 #### Additional commands
 
