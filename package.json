@@ -4,6 +4,7 @@
     "private": true,
     "scripts": {
         "dev": "turbo dev",
+        "dev:api": "turbo dev --filter=api",
         "dev:web": "turbo dev --filter=web --filter=api",
         "dev:ios": "turbo dev --filter=app --filter=api",
         "generate": "graphql-codegen",

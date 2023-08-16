@@ -1,9 +1,8 @@
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { RoomingList, SelectTravelers } from "@app/components";
 import { StatusBar } from "expo-status-bar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
-import { RoomingList } from "./src/app/rooming-list";
-import { SelectTravelers } from "./src/app/select-travelers";
 
 const client = new ApolloClient({
     uri: "http://localhost:4000/graphql",
@@ -12,6 +11,10 @@ const client = new ApolloClient({
 
 export default function Home() {
     const [nbTravelers, setNbTravelers] = useState(2);
+    const [selection, setSelection] = useState<string | undefined>(undefined);
+    useEffect(() => {
+        setSelection(undefined);
+    }, [nbTravelers]);
     return (
         <ApolloProvider client={client}>
             <View style={styles.container}>
@@ -25,9 +28,9 @@ export default function Home() {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: "75%",
+        marginTop: 128,
+        marginLeft: 16,
+        marginRight: 16,
         backgroundColor: "#fff",
-        alignItems: "center",
-        justifyContent: "center",
     },
 });

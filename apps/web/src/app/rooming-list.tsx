@@ -34,7 +34,6 @@ export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers, selection
                         curr.count
                     )}`;
                 }, "");
-                console.log({ combination });
                 return { label: combination, value: combination };
             })}
             onChange={(e) => setSelection(e.target.value)}
