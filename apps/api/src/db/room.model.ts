@@ -4,6 +4,10 @@ export type DbRoom = {
     price: number;
     name: string;
     description: string;
+    tourCode: string;
+    roomInventory: {
+        availability: number;
+    };
 };
 
 export enum BedCode {

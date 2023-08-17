@@ -19,7 +19,7 @@ const typeDefs = gql`
 
     extend type Query {
         ## Get all possible room configurations available to book for a given tour
-        roomCombinations(nbTravelers: Int!): [[RoomCombinations!]!]
+        roomCombinations(nbTravelers: Int!, tourCode: String!): [[RoomCombinations!]!]
         ## Get all tours available to book
         tours: [Tour!]
     }
@@ -59,7 +59,7 @@ const typeDefs = gql`
         ## The name of the tour as displayed on the website
         name: String!
         ## The room configuration possibilities of the tour
-        roomingConfiguration: [RoomConfiguration!]
+        roomCombinations: [Room!]
     }
 
     enum BedCode {
@@ -79,7 +79,7 @@ const typeDefs = gql`
 
 const resolvers: Resolvers<Context> = {
     Query: {
-        async roomCombinations(_, { nbTravelers }, { db }) {
+        async roomCombinations(_, { nbTravelers, tourCode }, { db }) {
             const configs: Record<string, number>[][] = [
                 [],
                 [{ [BedCode.SINGLE]: 1 }],
@@ -101,16 +101,28 @@ const resolvers: Resolvers<Context> = {
                     { [BedCode.QUAD]: 1, [BedCode.SINGLE]: 1 },
                 ],
             ];
-            const rooms = await db.room.find().toArray();
+            const rooms = await db.room.find({ tourCode }).toArray();
             const combinations = configs[nbTravelers];
             return (
-                combinations?.map((combination) =>
-                    Object.keys(combination).reduce<{ count: number; room: WithId<DbRoom> }[]>((prev, curr) => {
-                        const count = combination[curr];
-                        const room = rooms?.find((room: DbRoom) => room.bedCode === curr);
-                        return room ? [...prev, { count, room }] : prev;
-                    }, [])
-                ) ?? []
+                combinations
+                    ?.map((combination) =>
+                        Object.keys(combination).reduce<{ count: number; room: WithId<DbRoom> }[]>((prev, curr) => {
+                            const count = combination[curr];
+                            const room = rooms?.find((room: DbRoom) => room.bedCode === curr);
+                            return room ? [...prev, { count, room }] : prev;
+                        }, [])
+                    )
+                    .filter((combos) => {
+                        const total = combos.reduce((prev, curr) => {
+                            return (prev += curr.count * curr.room.capacity);
+                        }, 0);
+                        if (total > nbTravelers) {
+                            return false;
+                        } else {
+                            return true;
+                        }
+                    })
+                    .filter((combos) => combos.some((combo) => Boolean(combo))) ?? []
             );
         },
         tours(_, __, ctx) {
@@ -118,9 +130,9 @@ const resolvers: Resolvers<Context> = {
         },
     },
     Mutation: {
-        async bookRoom(_, { _id }, ctx) {
+        async bookRoom(_, { _id }, { db }) {
             try {
-                await ctx.db.roomConfiguration.updateOne(
+                await db.room.updateOne(
                     { _id },
                     {
                         $inc: {
@@ -136,8 +148,8 @@ const resolvers: Resolvers<Context> = {
         },
     },
     Tour: {
-        roomingConfiguration(_, __, ctx) {
-            return ctx.db.roomConfiguration.find().toArray();
+        roomCombinations(_, __, { db }) {
+            return db.room.find().toArray();
         },
     },
     DateTime: DateTimeResolver,

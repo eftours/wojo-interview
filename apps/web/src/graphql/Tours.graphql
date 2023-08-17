@@ -5,7 +5,7 @@ query Tours {
         startDate
         endDate
         name
-        roomingConfiguration {
+        roomCombinations {
             _id
             bedCode
             name

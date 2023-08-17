@@ -1,5 +1,6 @@
 export type DbTour = {
     tourCode: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string;
+    endDate: string;
+    name: string;
 };

@@ -49,7 +49,7 @@ export const rooms = [
         name: "Single",
         description: "A small room with a bed for one person",
         capacity: 1,
-        bedCode: "S",
+        bedCode: BedCode.SINGLE,
         price: 100,
         roomInventory: {
             availability: 10,
@@ -60,7 +60,7 @@ export const rooms = [
         name: "Double",
         description: "A standard room with a queen bed for 2",
         capacity: 2,
-        bedCode: "D",
+        bedCode: BedCode.DOUBLE,
         price: 200,
         roomInventory: {
             availability: 50,
@@ -71,7 +71,7 @@ export const rooms = [
         name: "Quad",
         description: "An extra large room with two queen beds for 4 people total",
         capacity: 4,
-        bedCode: "Q",
+        bedCode: BedCode.QUAD,
         price: 400,
         roomInventory: {
             availability: 0,
@@ -82,7 +82,7 @@ export const rooms = [
         name: "Double",
         description: "A standard room with a queen bed for 2",
         capacity: 2,
-        bedCode: "D",
+        bedCode: BedCode.DOUBLE,
         price: 200,
         roomInventory: {
             availability: 20,
