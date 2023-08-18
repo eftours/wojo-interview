@@ -18,6 +18,7 @@ This service uses:
 -   Jest
 -   Docker
 -   Next.js
+-   Expo
 -   Turbo
 
 #### Getting Started
@@ -29,9 +30,10 @@ This repo uses Turborepo and has a few aliased commands in the root package.json
 3. Run `docker-compose up` to create a running local mongo instance
 4. Run `sudo bash add-mongo-host.sh` to connect the mongo replica
 5. Run `npm run seed:db` to seed the database with some initial sample data
-6. Run `npm run dev` to start developing the UI and GraphQL Service in parallel or run one of the below dev commands individually:
-    1. GraphQL Service: `npm run dev:api`
-    1. UI `npm run dev:web`
+6. Run `npm run dev` to start developing the web, app and GraphQL Service in parallel or run one of the below dev commands individually:
+    1. Web: `npm run dev:web`
+    2. iOS: `npm run dev:ios`
+    3. API: `npm run dev:api`
 
 #### Additional commands
 

@@ -1,7 +1,7 @@
 "use client";
+import pluralize from "pluralize";
 import { SetStateAction } from "react";
 import { BedCode, useBookRoomMutation, useRoomCombinationsQuery } from "../../generated";
-import pluralize from "pluralize";
 import { RadioGroup } from "../components";
 
 export type RoomingListProps = {
