@@ -1,5 +1,5 @@
-query RoomCombinations($nbTravelers: Int!) {
-    roomCombinations(nbTravelers: $nbTravelers) {
+query RoomCombinations($nbTravelers: Int!, $tourCode: String!) {
+    roomCombinations(nbTravelers: $nbTravelers, tourCode: $tourCode) {
         count
         room {
             _id
@@ -7,6 +7,9 @@ query RoomCombinations($nbTravelers: Int!) {
             name
             description
             price
+            roomInventory {
+                availability
+            }
         }
     }
 }

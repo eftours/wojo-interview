@@ -10,7 +10,7 @@ export const Select: React.FC<SelectProps> = ({ items, onChange, value, labelTex
         <>
             {labelText ? <label style={{ marginRight: 8, fontWeight: 500 }}>{labelText}</label> : null}
             <select
-                style={{ padding: "4px 16px 4px 8px", cursor: "pointer", borderRadius: 4, width: 64 }}
+                style={{ padding: "4px 16px 4px 8px", cursor: "pointer", borderRadius: 4, minWidth: 64 }}
                 onChange={(e) => onChange?.(e.target.value)}
                 value={value}
             >

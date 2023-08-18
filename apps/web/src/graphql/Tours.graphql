@@ -1,0 +1,17 @@
+query Tours {
+    tours {
+        _id
+        tourCode
+        startDate
+        endDate
+        name
+        roomCombinations {
+            _id
+            bedCode
+            name
+            roomInventory {
+                availability
+            }
+        }
+    }
+}
