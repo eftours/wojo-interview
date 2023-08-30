@@ -31,6 +31,6 @@
         "@wojo/graphql-scalars": "*",
         "cors": "^2.8.5",
         "graphql-tag": "^2.12.6",
-        "mongodb": "^5.3.0"
+        "mongodb": "^5.8.0"
     }
 }

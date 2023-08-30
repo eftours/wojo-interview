@@ -7,7 +7,7 @@
         "test": "jest"
     },
     "dependencies": {
-        "mongodb": "^5.3.0",
+        "mongodb": "^5.8.0",
         "lodash": "^4.6.0",
         "zod": "^3.21.4"
     },
