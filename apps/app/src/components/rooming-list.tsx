@@ -13,10 +13,9 @@ export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers, selectedI
         variables: {
             nbTravelers,
         },
-        skip: nbTravelers < 1 || nbTravelers > 5,
     });
     if (loading) {
-        return <Text>loading...</Text>;
+        return <Text>Loading...</Text>;
     }
     if (error) {
         return <Text>There was an error loading the rooms.</Text>;
@@ -24,7 +23,7 @@ export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers, selectedI
     if (!data?.roomCombinations?.length) {
         return <Text>{`There are no rooms for ${nbTravelers} ${pluralize("traveler", nbTravelers)}`}</Text>;
     }
-    const items = data.roomCombinations.map((combos, index) => {
+    const rooms = data.roomCombinations.map((combos) => {
         const combination = combos.reduce((prev, curr) => {
             return `${prev ? `${prev}, ` : prev} ${curr.count} ${curr.room.name} ${pluralize("room", curr.count)}`;
         }, "");
@@ -32,7 +31,7 @@ export const RoomingList: React.FC<RoomingListProps> = ({ nbTravelers, selectedI
     });
     return (
         <View data-testid="rooming-list" style={styles.container}>
-            <RadioGroup items={items} selectedId={selectedId} onChange={setSelection} />
+            <RadioGroup items={rooms} selectedId={selectedId} onChange={setSelection} />
         </View>
     );
 };
